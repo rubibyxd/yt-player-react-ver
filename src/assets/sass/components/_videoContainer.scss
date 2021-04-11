@@ -1,0 +1,30 @@
+.videos-container {
+    padding: 0 90px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .single-video {
+        width: calc((100% / 4) - 20px);
+        margin:10px;
+        margin-bottom: 20px;
+        &__pic {
+            margin-bottom: 10px;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        &__title {
+            margin-bottom: 10px;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        &__channel {
+            margin-bottom: 10px;
+        }
+    }
+}

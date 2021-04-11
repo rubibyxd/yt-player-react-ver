@@ -1,0 +1,30 @@
+.serch-container {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .search-bar {
+        width: 40%;
+        min-width: 300px;
+        display: flex;
+        .search-area {
+            width: 100%;
+            font-size: 18px;
+            color: $fontColor;
+            border-radius: 5px 0 0 5px;
+            border: 1px solid $fontActiveColor;
+            background-color: $navbarColor;
+            padding: 10px;
+        }
+        .search-btn {
+            width: 100px;
+            border: 1px solid $fontActiveColor;
+            border-radius: 0 5px 5px 0;
+            text-align: center;
+            line-height: 2.5;
+            background-color: $fontActiveColor;
+            color: $navbarColor;
+        }
+    }
+}
