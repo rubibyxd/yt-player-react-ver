@@ -1,12 +1,41 @@
-import React from 'react'
-import fackData from '../assets/json/fakeData.json'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
-function VideosContainer () {
+VideosContainer.propTypes = {
+    videoData: PropTypes.array,
+    page: PropTypes.number
+}
+
+function VideosContainer (props) {
+    const [videoArr, setVideoArr] = useState([])
+    const perPage = 8
+
+    useEffect(() => {
+        if (props.videoData && props.videoData.length > 0) arrangeVideos()
+    }, [props.videoData])
+
+    useEffect(() => {
+        arrangeVideos(props.page)
+    }, [props.page])
+
+    function arrangeVideos (page) {
+        const videos = JSON.parse(JSON.stringify(props.videoData))
+        const newData = []
+        videos.forEach((item, i) => {
+            const page = parseInt(i / perPage)
+            if (i % perPage === 0) newData.push([])
+            newData[page].push(item)
+        })
+        const currentPage = page || 0
+        const nowArr = newData[currentPage]
+        if (nowArr && nowArr.length > 0) setVideoArr(nowArr)
+    }
+
     return (
         <>
             <div className="videos-container">
                 {
-                    fackData.map((data, index) => {
+                    videoArr.map((data, index) => {
                         return (
                             <div className="single-video" key={index}>
                                 <div className="single-video__pic">

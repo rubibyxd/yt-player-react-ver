@@ -3,7 +3,6 @@ import {
     Switch,
     Route
 } from 'react-router-dom'
-// import routes from "./route/index"
 import Home from './components/Home'
 import Collection from './components/Collection'
 import Navbar from './components/Navbar'
@@ -15,9 +14,6 @@ function App () {
             <div>
                 <Navbar />
                 <Switch>
-                    {/* {routes.map((route, i) => (
-                        <Route key={i} {...route} />
-                    ))} */}
                     <Route exact path="/">
                         <Home />
                     </Route>
